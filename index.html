@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coquetel Autoral — Perfil do Casal</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;700&family=Petit+Formal+Script&display=swap');
+
+:root{
+  --wine:#5C1A2E;
+  --wine-light:#7A2A42;
+  --gold:#B78B4C;
+  --gold-soft:rgba(183,139,76,0.35);
+  --paper:#F6EFE4;
+  --card:#FFFCF7;
+  --sage:#7C8B6C;
+  --ink:#2A1F23;
+  --ink-soft:#6b5c60;
+  --path:#1F6E63;
+  --path-soft:rgba(31,110,99,0.12);
+  --path-p2:#C27D38;
+  --path-p2-soft:rgba(194,125,56,0.12);
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Karla',sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.page{
+  max-width:750px;
+  margin:0 auto;
+  padding:48px 20px 60px;
+}
+h1,h2,h3{
+  font-family:'Cormorant Garamond',serif;
+  margin:0;
+  font-weight:500;
+}
+.eyebrow{
+  font-family:'Karla',sans-serif;
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:700;
+  margin-bottom:12px;
+}
+header.hero{
+  text-align:center;
+  margin-bottom:36px;
+}
+header.hero h1{
+  font-size:40px;
+  color:var(--wine);
+  line-height:1.25;
+  font-weight:500;
+}
+.script-line{
+  font-family:'Petit Formal Script',cursive;
+  font-size:24px;
+  color:var(--gold);
+  margin-top:10px;
+  margin-bottom:14px;
+}
+header.hero p{
+  color:var(--ink-soft);
+  font-size:15px;
+  max-width:540px;
+  margin:0 auto;
+  line-height:1.6;
+}
+.divider{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:28px 0 32px;
+  color:var(--gold);
+}
+.divider::before,.divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--gold-soft);
+}
+.divider svg{width:16px;height:16px;flex-shrink:0;}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  color: var(--wine);
+  border-left: 2px solid var(--gold);
+  padding-left: 14px;
+  margin: 28px 0 20px;
+  font-weight: 500;
+}
+
+/* progress glass */
+.progress-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  margin-bottom:16px;
+}
+.progress-wrap svg{width:46px;height:56px;}
+.progress-label{font-size:12px;color:var(--ink-soft);letter-spacing:.05em;}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--gold-soft);
+  border-radius:12px;
+  padding:32px 28px;
+  box-shadow:0 12px 40px rgba(92,26,46,0.04);
+}
+
+.field-group{margin-bottom:26px;}
+.field-group label.simple-label{
+  display:block;
+  font-size:14px;
+  font-weight:700;
+  color:var(--wine);
+  margin-bottom:4px;
+  letter-spacing: 0.02em;
+}
+.field-group .label-sub{
+  font-size:12.5px;
+  color:var(--ink-soft);
+  margin-bottom:12px;
+}
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+input[type="text"]{
+  width:100%;
+  padding:13px 16px;
+  border:1px solid var(--gold-soft);
+  border-radius:8px;
+  font-family:'Karla',sans-serif;
+  font-size:15px;
+  background:#fff;
+  color:var(--ink);
+  transition: border-color 0.2s ease;
+}
+input[type="text"]:focus{outline:1.5px solid var(--gold);outline-offset:1px;}
+
+.question{margin-bottom:32px;}
+.question .qnum{
+  font-family:'Karla',sans-serif;
+  font-size:11px;
+  font-weight:700;
+  color:var(--gold);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.question h3{
+  font-size:22px;
+  color:var(--wine);
+  margin-top:4px;
+  margin-bottom:14px;
+  font-weight:500;
+  line-height:1.3;
+}
+.chip-group{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.chip-group.three-col {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 550px) {
+  .chip-group.three-col {
+    grid-template-columns: 1fr;
+  }
+}
+.chip-input{position:absolute;opacity:0;width:0;height:0;}
+.chip{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  border:1px solid var(--gold-soft);
+  border-radius:8px;
+  background:#fff;
+  cursor:pointer;
+  transition:all .15s ease;
+  font-size:14.5px;
+  font-weight:500;
+  height: 100%;
+}
+.chip:hover{border-color:var(--gold); background: rgba(183,139,76,0.02);}
+.chip-emoji{font-size:18px;line-height:1;}
+.chip-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.chip-desc {
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  font-weight: 400;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+.chip-input:checked + .chip{
+  background:var(--wine);
+  border-color:var(--wine);
+  color:#FBF3E8;
+}
+.chip-input:checked + .chip .chip-desc{
+  color: #ebdcd0;
+}
+.chip-input:focus-visible + .chip{outline:2px solid var(--gold);outline-offset:2px;}
+
+.btn-submit{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:8px;
+  background:var(--wine);
+  color:#FBF3E8;
+  font-family:'Karla',sans-serif;
+  font-weight:700;
+  font-size:15px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background .15s ease, opacity .15s ease;
+}
+.btn-submit:hover{background:var(--wine-light);}
+.btn-submit:disabled{opacity:.45;cursor:not-allowed;}
+
+.thankyou{
+  text-align:center;
+  padding:20px 6px 6px;
+}
+.thankyou svg{width:52px;height:52px;margin-bottom:10px;}
+.thankyou h2{color:var(--wine);font-size:28px;font-weight:500;}
+.thankyou p{color:var(--ink-soft);font-size:14.5px;margin-top:8px;}
+
+.save-error{
+  background:#FBEEE9;
+  border:1.5px solid #C0532A;
+  border-radius:10px;
+  padding:16px 18px;
+  margin-top:8px;
+}
+.save-error strong{color:#93381A;font-size:14.5px;}
+.save-error p{color:#7A4432;font-size:13px;margin-top:8px;line-height:1.5;}
+.save-error-copy{font-weight:700;margin-top:12px;}
+.save-error pre{
+  background:#fff;
+  border:1px solid #D9B2A0;
+  border-radius:8px;
+  padding:10px 12px;
+  font-size:11.5px;
+  color:var(--ink);
+  white-space:pre-wrap;
+  word-break:break-word;
+  margin-top:6px;
+}
+
+.export-box, .import-box {
+  background:rgba(183,139,76,0.12);
+  border:1.5px solid var(--gold);
+  border-radius:10px;
+  padding:14px 16px;
+  margin-top:14px;
+}
+.export-box strong, .import-box strong {
+  color:var(--wine);
+  display:block;
+  margin-bottom:6px;
+  font-size:13.5px;
+}
+.export-box p, .import-box p {
+  font-size:12.5px;
+  color:var(--ink-soft);
+  margin:6px 0 10px;
+}
+.btn-export, .btn-import {
+  width:100%;
+  padding:10px;
+  border:1.5px solid var(--gold);
+  background:transparent;
+  color:var(--wine);
+  border-radius:8px;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  margin-bottom:8px;
+}
+.btn-export:hover, .btn-import:hover {
+  background:var(--gold);
+  color:#fff;
+}
+.export-box textarea, .import-box textarea {
+  width:100%;
+  padding:10px;
+  border:1px solid var(--gold-soft);
+  border-radius:8px;
+  font-family:monospace;
+  font-size:11px;
+  background:#fff;
+}
+
+.hidden{display:none !important;}
+
+.staff-link{
+  text-align:center;
+  margin-top:28px;
+}
+.staff-link a{
+  font-size:12px;
+  color:var(--ink-soft);
+  text-decoration:underline;
+  cursor:pointer;
+  letter-spacing: 0.03em;
+}
+
+/* staff view */
+.staff-back{
+  font-size:13px;
+  color:var(--wine);
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-bottom:20px;
+  font-weight:700;
+}
+.staff-section{margin-bottom:36px;}
+.staff-section h2{
+  color:var(--wine);
+  font-size:24px;
+  margin-bottom:4px;
+  font-weight:500;
+}
+.staff-section .sub{
+  font-size:13.5px;
+  color:var(--ink-soft);
+  margin-bottom:16px;
+}
+.matrix-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+table.matrix{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12.5px;
+  background:var(--card);
+  border-radius:8px;
+  overflow:hidden;
+  min-width: 750px;
+}
+table.matrix th,table.matrix td{
+  border:1px solid var(--gold-soft);
+  padding:12px 10px;
+  text-align:left;
+  vertical-align:top;
+}
+table.matrix th{
+  background:var(--wine);
+  color:#FBF3E8;
+  font-weight:700;
+  font-size:11.5px;
+  letter-spacing: 0.03em;
+}
+table.matrix td.rowhead{
+  background:rgba(183,139,76,0.12);
+  font-weight:700;
+  color:var(--wine);
+  min-width: 110px;
+}
+table.matrix td strong{display:block;color:var(--wine);font-size:13px;margin-bottom:4px;}
+table.matrix td span{color:var(--ink-soft);font-size:11px;line-height:1.3;display:block;}
+.matrix-label{
+  font-size:12px;
+  font-weight:700;
+  color:var(--wine);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin:18px 0 10px;
+}
+
+.mod-row{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.mod-card{
+  flex:1;
+  min-width:160px;
+  background:var(--card);
+  border:1px solid var(--gold-soft);
+  border-radius:8px;
+  padding:16px 18px;
+}
+.mod-card strong{color:var(--wine);font-size:14.5px;display:block;margin-bottom:6px;font-weight:600;}
+.mod-card p{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.4;}
+
+.arrow-down{
+  display:flex;
+  justify-content:center;
+  margin:16px 0;
+  color:var(--gold);
+}
+
+.responses-toolbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px;
+}
+.btn-refresh{
+  border:1px solid var(--gold);
+  background:transparent;
+  color:var(--wine);
+  padding:8px 16px;
+  border-radius:6px;
+  font-size:12.5px;
+  font-weight:700;
+  cursor:pointer;
+}
+.resp-card{
+  background:var(--card);
+  border:1px solid var(--gold-soft);
+  border-radius:8px;
+  padding:18px 20px;
+  margin-bottom:14px;
+}
+.resp-card .resp-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:10px;
+}
+.resp-card .resp-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--wine);}
+.resp-card .resp-time{font-size:11px;color:var(--ink-soft);}
+.resp-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.resp-person-box {
+  background: rgba(183,139,76,0.04);
+  border: 1px solid var(--gold-soft);
+  padding: 12px 14px;
+  border-radius: 6px;
+}
+.resp-person-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--wine);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.resp-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;}
+.resp-tags span{
+  font-size: 10.5px;
+  background: rgba(92,26,46,0.05);
+  color: var(--wine);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.resp-result{
+  background:rgba(31,110,99,0.05);
+  border-left:3px solid var(--path);
+  padding:12px 14px;
+  border-radius:6px;
+  font-size:13.5px;
+  line-height:1.4;
+}
+.resp-result strong{color:var(--path);}
+.resp-empty{
+  text-align:center;
+  color:var(--ink-soft);
+  font-size:13.5px;
+  padding:28px;
+  border:1px dashed var(--gold-soft);
+  border-radius:8px;
+}
+.resp-empty-error{
+  text-align:left;
+  color:#7A4432;
+  background:#FBEEE9;
+  border:1.5px solid #C0532A;
+  line-height:1.6;
+}
+.resp-empty-error strong{color:#93381A;}
+
+/* path highlights */
+.path-banner{
+  background:var(--path-soft);
+  border:1px solid var(--path);
+  color:var(--path);
+  padding:12px 18px;
+  border-radius:8px;
+  font-size:13.5px;
+  font-weight:700;
+  margin-bottom:24px;
+}
+.path-banner-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.path-banner strong{color:var(--path);}
+.path-banner a{
+  color:var(--path);
+  text-decoration:underline;
+  cursor:pointer;
+  font-weight:700;
+  font-size:12px;
+  white-space:nowrap;
+}
+.path-banner-people{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:12px;
+}
+@media (max-width:550px){
+  .path-banner-people{grid-template-columns:1fr;}
+}
+.path-banner-person{
+  background:#fff;
+  border-radius:6px;
+  padding:9px 12px;
+  font-weight:400;
+  font-size:12.5px;
+  color:var(--ink);
+  line-height:1.5;
+}
+.path-banner-person strong{
+  display:block;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  margin-bottom:3px;
+}
+.path-banner-p1{border:1px solid var(--path);}
+.path-banner-p1 strong{color:var(--path);}
+.path-banner-p2{border:1px solid var(--path-p2);}
+.path-banner-p2 strong{color:var(--path-p2);}
+table.matrix td,table.matrix th,.mod-card{
+  transition:background .25s ease, box-shadow .25s ease, border-color .25s ease, color .25s ease;
+}
+
+.p1-active {
+  background: var(--path-soft) !important;
+  box-shadow: inset 0 0 0 1.5px var(--path) !important;
+}
+th.p1-active { background: var(--path) !important; color: #fff !important; }
+td.rowhead.p1-active { color: var(--path) !important; }
+td.p1-active strong { color: var(--path) !important; }
+.mod-card.p1-active {
+  background: var(--path-soft) !important;
+  border-color: var(--path) !important;
+  box-shadow: 0 0 0 2px rgba(31,110,99,0.1) !important;
+}
+.mod-card.p1-active strong { color: var(--path) !important; }
+
+.p2-active {
+  background: var(--path-p2-soft) !important;
+  box-shadow: inset 0 0 0 1.5px var(--path-p2) !important;
+}
+th.p2-active { background: var(--path-p2) !important; color: #fff !important; }
+td.rowhead.p2-active { color: var(--path-p2) !important; }
+td.p2-active strong { color: var(--path-p2) !important; }
+.mod-card.p2-active {
+  background: var(--path-p2-soft) !important;
+  border-color: var(--path-p2) !important;
+  box-shadow: 0 0 0 2px rgba(194,125,56,0.1) !important;
+}
+.mod-card.p2-active strong { color: var(--path-p2) !important; }
+
+.p1-active.p2-active {
+  background: linear-gradient(135deg, var(--path-soft) 50%, var(--path-p2-soft) 50%) !important;
+  box-shadow: inset 0 0 0 2px var(--wine) !important;
+}
+
+.btn-path{
+  margin-top:14px;
+  border:1px solid var(--path);
+  background:transparent;
+  color:var(--path);
+  padding:8px 14px;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+.btn-path:hover{background:var(--path);color:#fff;}
+.resp-card.resp-card-active{
+  border-color:var(--wine);
+  box-shadow:0 0 0 2px rgba(92,26,46,0.1);
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ VIEW: FORM ============ -->
+  <div id="view-form">
+    <header class="hero">
+      <div class="eyebrow">Desenho de Perfil</div>
+      <h1>A história de vocês<br>contada em um copo</h1>
+      <div class="script-line">um coquetel autoral, só de vocês</div>
+      <p>Para mapearmos o perfil sensorial exato da noite, criamos um fluxo duplo. Cada um responderá às suas 5 perguntas de preferência de forma individual.</p>
+    </header>
+
+    <div class="progress-wrap">
+      <svg viewBox="0 0 100 120" aria-hidden="true">
+        <clipPath id="bowlClip"><path d="M15 10 L85 10 L50 55 Z"/></clipPath>
+        <rect id="liquidFill" x="15" y="55" width="70" height="0" fill="var(--gold)" clip-path="url(#bowlClip)"/>
+        <path d="M15 10 L85 10 L50 55 Z" fill="none" stroke="var(--wine)" stroke-width="3"/>
+        <line x1="50" y1="55" x2="50" y2="90" stroke="var(--wine)" stroke-width="3"/>
+        <line x1="30" y1="95" x2="70" y2="95" stroke="var(--wine)" stroke-width="3"/>
+        <line x1="50" y1="90" x2="50" y2="95" stroke="var(--wine)" stroke-width="3"/>
+      </svg>
+      <div class="progress-label" id="progressLabel">0 de 10 respondidas</div>
+    </div>
+
+    <div class="card">
+      <form id="tastingForm">
+
+        <div class="field-group">
+          <label class="simple-label">Quem serão os donos desse brinde?</label>
+          <div class="label-sub">Insiram os nomes para identificarmos os perfis na bancada do bar.</div>
+          <div class="input-row">
+            <input type="text" id="nomeP1" placeholder="Nome da Pessoa 1" required>
+            <input type="text" id="nomeP2" placeholder="Nome da Pessoa 2" required>
+          </div>
+        </div>
+
+        <div class="divider"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c-2 3-2 5 0 7 2-2 2-4 0-7Z"/><path d="M12 10v11"/></svg></div>
+
+        <!-- PERFIL PESSOA 1 -->
+        <div id="wrapper-p1">
+          <div class="section-title">Preferências de: <span id="label-nomeP1">Pessoa 1</span></div>
+
+          <div class="question">
+            <div class="qnum">Pergunta 1 de 5</div>
+            <h3>Qual caminho de coquetelaria você deseja explorar?</h3>
+            <div class="chip-group" role="radiogroup">
+              <input type="radio" name="p1_alcool" id="p1-a-com" value="com" class="chip-input"><label for="p1-a-com" class="chip"><span class="chip-emoji">🍸</span><div class="chip-text-wrap"><span>Coquetelaria Autoral</span><span class="chip-desc">Com álcool</span></div></label>
+              <input type="radio" name="p1_alcool" id="p1-a-sem" value="sem" class="chip-input"><label for="p1-a-sem" class="chip"><span class="chip-emoji">🍹</span><div class="chip-text-wrap"><span>Coquetelaria Conceito</span><span class="chip-desc">Sem álcool (Mocktails)</span></div></label>
+            </div>
+          </div>
+
+          <div class="question hidden" id="p1-q-base">
+            <div class="qnum">Pergunta 2 de 5</div>
+            <h3>Qual base espirituosa ou estrutura costuma agradar mais o seu paladar?</h3>
+            <div class="chip-group hidden" id="p1-base-com-wrap">
+              <input type="radio" name="p1_base_com" id="p1-b-gin" value="gin" class="chip-input"><label for="p1-b-gin" class="chip"><span class="chip-emoji">🌿</span><div class="chip-text-wrap"><span>Gin</span><span class="chip-desc">Botânico, aromático e fresco</span></div></label>
+              <input type="radio" name="p1_base_com" id="p1-b-vodka" value="vodka" class="chip-input"><label for="p1-b-vodka" class="chip"><span class="chip-emoji">💎</span><div class="chip-text-wrap"><span>Vodka</span><span class="chip-desc">Perfil limpo, neutro e focado em texturas</span></div></label>
+              <input type="radio" name="p1_base_com" id="p1-b-whisky" value="whisky" class="chip-input"><label for="p1-b-whisky" class="chip"><span class="chip-emoji">🥃</span><div class="chip-text-wrap"><span>Whisky ou Bourbon</span><span class="chip-desc">Notas amadeiradas, maduras ou tostadas</span></div></label>
+              <input type="radio" name="p1_base_com" id="p1-b-tequila" value="tequila" class="chip-input"><label for="p1-b-tequila" class="chip"><span class="chip-emoji">🌵</span><div class="chip-text-wrap"><span>Tequila</span><span class="chip-desc">O frescor ou a complexidade do Agave</span></div></label>
+              <input type="radio" name="p1_base_com" id="p1-b-rum" value="rum" class="chip-input"><label for="p1-b-rum" class="chip"><span class="chip-emoji">🥃</span><div class="chip-text-wrap"><span>Rum</span><span class="chip-desc">Complexidade tropical, melaço e notas de barril</span></div></label>
+              <input type="radio" name="p1_base_com" id="p1-b-cachaca" value="cachaca" class="chip-input"><label for="p1-b-cachaca" class="chip"><span class="chip-emoji">🪵</span><div class="chip-text-wrap"><span>Cachaça Nobre</span><span class="chip-desc">A alma da cana em versões puras ou envelhecidas</span></div></label>
+              <input type="radio" name="p1_base_com" id="p1-b-espumante" value="espumante" class="chip-input"><label for="p1-b-espumante" class="chip"><span class="chip-emoji">🍾</span><div class="chip-text-wrap"><span>Espumantes &amp; Vinhos</span><span class="chip-desc">Borbulhas, acidez vibrante e sofisticação</span></div></label>
+              <input type="radio" name="p1_base_com" id="p1-b-variado" value="variado" class="chip-input"><label for="p1-b-variado" class="chip"><span class="chip-emoji">🧪</span><div class="chip-text-wrap"><span>Gosto de circular por tudo</span><span class="chip-desc">Perfil versátil para criações complexas</span></div></label>
+            </div>
+            <div class="chip-group hidden" id="p1-base-sem-wrap">
+              <input type="radio" name="p1_base_sem" id="p1-b-suco" value="suco" class="chip-input"><label for="p1-b-suco" class="chip"><span class="chip-emoji">🧃</span><div class="chip-text-wrap"><span>Sucos &amp; Polpas</span><span class="chip-desc">Textura sedosa e pureza da fruta</span></div></label>
+              <input type="radio" name="p1_base_sem" id="p1-b-cha" value="cha" class="chip-input"><label for="p1-b-cha" class="chip"><span class="chip-emoji">🍵</span><div class="chip-text-wrap"><span>Chás &amp; Infusões</span><span class="chip-desc">Complexidade tânica e extratos botânicos</span></div></label>
+              <input type="radio" name="p1_base_sem" id="p1-b-coco" value="coco" class="chip-input"><label for="p1-b-coco" class="chip"><span class="chip-emoji">🥥</span><div class="chip-text-wrap"><span>Água de Coco &amp; Reduções</span><span class="chip-desc">Hidratação, leveza e frescor tropical</span></div></label>
+              <input type="radio" name="p1_base_sem" id="p1-b-espumantezero" value="espumantezero" class="chip-input"><label for="p1-b-espumantezero" class="chip"><span class="chip-emoji">🥂</span><div class="chip-text-wrap"><span>Mocktails Gaseificados</span><span class="chip-desc">Estrutura de Spritz com sofisticação zero álcool</span></div></label>
+            </div>
+          </div>
+
+          <div class="question hidden" id="p1-q-sabor">
+            <div class="qnum">Pergunta 3 de 5</div>
+            <h3>Qual arquitetura de sabor melhor define sua preferência?</h3>
+            <div class="chip-group hidden" id="p1-sabor-com-wrap">
+              <input type="radio" name="p1_sabor_com" id="p1-s-citrico-com" value="citrico" class="chip-input"><label for="p1-s-citrico-com" class="chip"><span class="chip-emoji">🍋</span><div class="chip-text-wrap"><span>Cítrico &amp; Vibrante</span><span class="chip-desc">Foco em acidez equilibrada e frescor</span></div></label>
+              <input type="radio" name="p1_sabor_com" id="p1-s-doce-com" value="doce" class="chip-input"><label for="p1-s-doce-com" class="chip"><span class="chip-emoji">🍯</span><div class="chip-text-wrap"><span>Doce &amp; Envolvente</span><span class="chip-desc">Notas densas, reconfortantes ou untuosas</span></div></label>
+              <input type="radio" name="p1_sabor_com" id="p1-s-herbal-com" value="herbal" class="chip-input"><label for="p1-s-herbal-com" class="chip"><span class="chip-emoji">🌿</span><div class="chip-text-wrap"><span>Herbal &amp; Botânico</span><span class="chip-desc">Óleos essenciais e toques de horta fresca</span></div></label>
+              <input type="radio" name="p1_sabor_com" id="p1-s-tropical-com" value="tropical" class="chip-input"><label for="p1-s-tropical-com" class="chip"><span class="chip-emoji">🍍</span><div class="chip-text-wrap"><span>Frutado &amp; Tropical</span><span class="chip-desc">Explosão suculenta e solar de frutas</span></div></label>
+              <input type="radio" name="p1_sabor_com" id="p1-s-amargo-com" value="amargo" class="chip-input"><label for="p1-s-amargo-com" class="chip"><span class="chip-emoji">🪵</span><div class="chip-text-wrap"><span>Seco ou Amargo</span><span class="chip-desc">Para paladares maduros (Aperitivos/Bitters)</span></div></label>
+              <input type="radio" name="p1_sabor_com" id="p1-s-defumado-com" value="defumado" class="chip-input"><label for="p1-s-defumado-com" class="chip"><span class="chip-emoji">🪵💨</span><div class="chip-text-wrap"><span>Defumado &amp; Especiarias</span><span class="chip-desc">Notas tostadas, picância e complexidade molecular</span></div></label>
+            </div>
+            <div class="chip-group hidden" id="p1-sabor-sem-wrap">
+              <input type="radio" name="p1_sabor_sem" id="p1-s-citrico-sem" value="citrico" class="chip-input"><label for="p1-s-citrico-sem" class="chip"><span class="chip-emoji">🍋</span><div class="chip-text-wrap"><span>Cítrico &amp; Vibrante</span><span class="chip-desc">Foco em acidez límpida e refrescância</span></div></label>
+              <input type="radio" name="p1_sabor_sem" id="p1-s-doce-sem" value="doce" class="chip-input"><label for="p1-s-doce-sem" class="chip"><span class="chip-emoji">🍯</span><div class="chip-text-wrap"><span>Doce &amp; Envolvente</span><span class="chip-desc">Toques de mel, xaropes artesanais ou baunilha</span></div></label>
+              <input type="radio" name="p1_sabor_sem" id="p1-s-herbal-sem" value="herbal" class="chip-input"><label for="p1-s-herbal-sem" class="chip"><span class="chip-emoji">🌱</span><div class="chip-text-wrap"><span>Herbal &amp; Aromático</span><span class="chip-desc">Infusões perfumadas e ervas aromáticas</span></div></label>
+              <input type="radio" name="p1_sabor_sem" id="p1-s-tropical-sem" value="tropical" class="chip-input"><label for="p1-s-tropical-sem" class="chip"><span class="chip-emoji">🍍</span><div class="chip-text-wrap"><span>Frutado &amp; Tropical</span><span class="chip-desc">Carga marcante de frutas suculentas</span></div></label>
+              <input type="radio" name="p1_sabor_sem" id="p1-s-defumado-sem" value="defumado" class="chip-input"><label for="p1-s-defumado-sem" class="chip"><span class="chip-emoji">🪵💨</span><div class="chip-text-wrap"><span>Defumado &amp; Especiarias</span><span class="chip-desc">Extratos tostados, fumaça fria e picância leve</span></div></label>
+            </div>
+          </div>
+
+          <div class="question hidden" id="p1-q-intensidade">
+            <div class="qnum">Pergunta 4 de 5</div>
+            <h3>Qual nível de corpo e intensidade você espera do drink?</h3>
+            <div class="chip-group three-col">
+              <input type="radio" name="p1_intensidade" id="p1-i-refrescante" value="refrescante" class="chip-input"><label for="p1-i-refrescante" class="chip"><span class="chip-emoji">🧊</span><div class="chip-text-wrap"><span>Leve &amp; Refrescante</span></div></label>
+              <input type="radio" name="p1_intensidade" id="p1-i-equilibrado" value="equilibrado" class="chip-input"><label for="p1-i-equilibrado" class="chip"><span class="chip-emoji">⚖️</span><div class="chip-text-wrap"><span>Equilibrado</span></div></label>
+              <input type="radio" name="p1_intensidade" id="p1-i-marcante" value="marcante" class="chip-input"><label for="p1-i-marcante" class="chip"><span class="chip-emoji">🔥</span><div class="chip-text-wrap"><span>Intenso &amp; Marcante</span></div></label>
+            </div>
+          </div>
+
+          <div class="question hidden" id="p1-q-vibe">
+            <div class="qnum">Pergunta 5 de 5</div>
+            <h3>Qual estilo de apresentação sintoniza melhor com você?</h3>
+            <div class="chip-group">
+              <input type="radio" name="p1_vibe" id="p1-v-classico" value="classico" class="chip-input"><label for="p1-v-classico" class="chip"><span class="chip-emoji">🎩</span><div class="chip-text-wrap"><span>Clássica &amp; Atemporal</span><span class="chip-desc">Linhas limpas, sofisticação minimalista</span></div></label>
+              <input type="radio" name="p1_vibe" id="p1-v-moderno" value="moderno" class="chip-input"><label for="p1-v-moderno" class="chip"><span class="chip-emoji">✨</span><div class="chip-text-wrap"><span>Moderna &amp; Ousada</span><span class="chip-desc">Texturas inovadoras (clarificados, espumas, fumaça)</span></div></label>
+              <input type="radio" name="p1_vibe" id="p1-v-romantico" value="romantico" class="chip-input"><label for="p1-v-romantico" class="chip"><span class="chip-emoji">💞</span><div class="chip-text-wrap"><span>Romântica &amp; Intimista</span><span class="chip-desc">Detalhes delicados, toque floral e conexão</span></div></label>
+              <input type="radio" name="p1_vibe" id="p1-v-descontraido" value="descontraido" class="chip-input"><label for="p1-v-descontraido" class="chip"><span class="chip-emoji">🎉</span><div class="chip-text-wrap"><span>Descontraída &amp; Festiva</span><span class="chip-desc">Cores vibrantes, dinâmica alegre</span></div></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c-2 3-2 5 0 7 2-2 2-4 0-7Z"/><path d="M12 10v11"/></svg></div>
+
+        <!-- PERFIL PESSOA 2 -->
+        <div id="wrapper-p2" class="hidden">
+          <div class="section-title">Preferências de: <span id="label-nomeP2">Pessoa 2</span></div>
+
+          <div class="question">
+            <div class="qnum">Pergunta 1 de 5</div>
+            <h3>Qual caminho de coquetelaria você deseja explorar?</h3>
+            <div class="chip-group" role="radiogroup">
+              <input type="radio" name="p2_alcool" id="p2-a-com" value="com" class="chip-input"><label for="p2-a-com" class="chip"><span class="chip-emoji">🍸</span><div class="chip-text-wrap"><span>Coquetelaria Autoral</span><span class="chip-desc">Com álcool</span></div></label>
+              <input type="radio" name="p2_alcool" id="p2-a-sem" value="sem" class="chip-input"><label for="p2-a-sem" class="chip"><span class="chip-emoji">🍹</span><div class="chip-text-wrap"><span>Coquetelaria Conceito</span><span class="chip-desc">Sem álcool (Mocktails)</span></div></label>
+            </div>
+          </div>
+
+          <div class="question hidden" id="p2-q-base">
+            <div class="qnum">Pergunta 2 de 5</div>
+            <h3>Qual base espirituosa ou estrutura costuma agradar mais o seu paladar?</h3>
+            <div class="chip-group hidden" id="p2-base-com-wrap">
+              <input type="radio" name="p2_base_com" id="p2-b-gin" value="gin" class="chip-input"><label for="p2-b-gin" class="chip"><span class="chip-emoji">🌿</span><div class="chip-text-wrap"><span>Gin</span><span class="chip-desc">Botânico, aromático e fresco</span></div></label>
+              <input type="radio" name="p2_base_com" id="p2-b-vodka" value="vodka" class="chip-input"><label for="p2-b-vodka" class="chip"><span class="chip-emoji">💎</span><div class="chip-text-wrap"><span>Vodka</span><span class="chip-desc">Perfil limpo, neutro e focado em texturas</span></div></label>
+              <input type="radio" name="p2_base_com" id="p2-b-whisky" value="whisky" class="chip-input"><label for="p2-b-whisky" class="chip"><span class="chip-emoji">🥃</span><div class="chip-text-wrap"><span>Whisky ou Bourbon</span><span class="chip-desc">Notas amadeiradas, maduras ou tostadas</span></div></label>
+              <input type="radio" name="p2_base_com" id="p2-b-tequila" value="tequila" class="chip-input"><label for="p2-b-tequila" class="chip"><span class="chip-emoji">🌵</span><div class="chip-text-wrap"><span>Tequila</span><span class="chip-desc">O frescor ou a complexidade do Agave</span></div></label>
+              <input type="radio" name="p2_base_com" id="p2-b-rum" value="rum" class="chip-input"><label for="p2-b-rum" class="chip"><span class="chip-emoji">🥃</span><div class="chip-text-wrap"><span>Rum</span><span class="chip-desc">Complexidade tropical, melaço e notas de barril</span></div></label>
+              <input type="radio" name="p2_base_com" id="p2-b-cachaca" value="cachaca" class="chip-input"><label for="p2-b-cachaca" class="chip"><span class="chip-emoji">🪵</span><div class="chip-text-wrap"><span>Cachaça Nobre</span><span class="chip-desc">A alma da cana em versões puras ou envelhecidas</span></div></label>
+              <input type="radio" name="p2_base_com" id="p2-b-espumante" value="espumante" class="chip-input"><label for="p2-b-espumante" class="chip"><span class="chip-emoji">🍾</span><div class="chip-text-wrap"><span>Espumantes &amp; Vinhos</span><span class="chip-desc">Borbulhas, acidez vibrante e sofisticação</span></div></label>
+              <input type="radio" name="p2_base_com" id="p2-b-variado" value="variado" class="chip-input"><label for="p2-b-variado" class="chip"><span class="chip-emoji">🧪</span><div class="chip-text-wrap"><span>Gosto de circular por tudo</span><span class="chip-desc">Perfil versátil para criações complexas</span></div></label>
+            </div>
+            <div class="chip-group hidden" id="p2-base-sem-wrap">
+              <input type="radio" name="p2_base_sem" id="p2-b-suco" value="suco" class="chip-input"><label for="p2-b-suco" class="chip"><span class="chip-emoji">🧃</span><div class="chip-text-wrap"><span>Sucos &amp; Polpas</span><span class="chip-desc">Textura sedosa e pureza da fruta</span></div></label>
+              <input type="radio" name="p2_base_sem" id="p2-b-cha" value="cha" class="chip-input"><label for="p2-b-cha" class="chip"><span class="chip-emoji">🍵</span><div class="chip-text-wrap"><span>Chás &amp; Infusões</span><span class="chip-desc">Complexidade tânica e extratos botânicos</span></div></label>
+              <input type="radio" name="p2_base_sem" id="p2-b-coco" value="coco" class="chip-input"><label for="p2-b-coco" class="chip"><span class="chip-emoji">🥥</span><div class="chip-text-wrap"><span>Água de Coco &amp; Reduções</span><span class="chip-desc">Hidratação, leveza e frescor tropical</span></div></label>
+              <input type="radio" name="p2_base_sem" id="p2-b-espumantezero" value="espumantezero" class="chip-input"><label for="p2-b-espumantezero" class="chip"><span class="chip-emoji">🥂</span><div class="chip-text-wrap"><span>Mocktails Gaseificados</span><span class="chip-desc">Estrutura de Spritz com sofisticação zero álcool</span></div></label>
+            </div>
+          </div>
+
+          <div class="question hidden" id="p2-q-sabor">
+            <div class="qnum">Pergunta 3 de 5</div>
+            <h3>Qual arquitetura de sabor melhor define sua preferência?</h3>
+            <div class="chip-group hidden" id="p2-sabor-com-wrap">
+              <input type="radio" name="p2_sabor_com" id="p2-s-citrico-com" value="citrico" class="chip-input"><label for="p2-s-citrico-com" class="chip"><span class="chip-emoji">🍋</span><div class="chip-text-wrap"><span>Cítrico &amp; Vibrante</span><span class="chip-desc">Foco em acidez equilibrada e frescor</span></div></label>
+              <input type="radio" name="p2_sabor_com" id="p2-s-doce-com" value="doce" class="chip-input"><label for="p2-s-doce-com" class="chip"><span class="chip-emoji">🍯</span><div class="chip-text-wrap"><span>Doce &amp; Envolvente</span><span class="chip-desc">Notas densas, reconfortantes ou untuosas</span></div></label>
+              <input type="radio" name="p2_sabor_com" id="p2-s-herbal-com" value="herbal" class="chip-input"><label for="p2-s-herbal-com" class="chip"><span class="chip-emoji">🌿</span><div class="chip-text-wrap"><span>Herbal &amp; Botânico</span><span class="chip-desc">Óleos essenciais e toques de horta fresca</span></div></label>
+              <input type="radio" name="p2_sabor_com" id="p2-s-tropical-com" value="tropical" class="chip-input"><label for="p2-s-tropical-com" class="chip"><span class="chip-emoji">🍍</span><div class="chip-text-wrap"><span>Frutado &amp; Tropical</span><span class="chip-desc">Explosão suculenta e solar de frutas</span></div></label>
+              <input type="radio" name="p2_sabor_com" id="p2-s-amargo-com" value="amargo" class="chip-input"><label for="p2-s-amargo-com" class="chip"><span class="chip-emoji">🪵</span><div class="chip-text-wrap"><span>Seco ou Amargo</span><span class="chip-desc">Para paladares maduros (Aperitivos/Bitters)</span></div></label>
+              <input type="radio" name="p2_sabor_com" id="p2-s-defumado-com" value="defumado" class="chip-input"><label for="p2-s-defumado-com" class="chip"><span class="chip-emoji">🪵💨</span><div class="chip-text-wrap"><span>Defumado &amp; Especiarias</span><span class="chip-desc">Notas tostadas, picância e complexidade molecular</span></div></label>
+            </div>
+            <div class="chip-group hidden" id="p2-sabor-sem-wrap">
+              <input type="radio" name="p2_sabor_sem" id="p2-s-citrico-sem" value="citrico" class="chip-input"><label for="p2-s-citrico-sem" class="chip"><span class="chip-emoji">🍋</span><div class="chip-text-wrap"><span>Cítrico &amp; Vibrante</span><span class="chip-desc">Foco em acidez límpida e refrescância</span></div></label>
+              <input type="radio" name="p2_sabor_sem" id="p2-s-doce-sem" value="doce" class="chip-input"><label for="p2-s-doce-sem" class="chip"><span class="chip-emoji">🍯</span><div class="chip-text-wrap"><span>Doce &amp; Envolvente</span><span class="chip-desc">Toques de mel, xaropes artesanais ou baunilha</span></div></label>
+              <input type="radio" name="p2_sabor_sem" id="p2-s-tropical-sem" value="tropical" class="chip-input"><label for="p2-s-tropical-sem" class="chip"><span class="chip-emoji">🍍</span><div class="chip-text-wrap"><span>Frutado &amp; Tropical</span><span class="chip-desc">Carga marcante de frutas suculentas</span></div></label>
+              <input type="radio" name="p2_sabor_sem" id="p2-s-defumado-sem" value="defumado" class="chip-input"><label for="p2-s-defumado-sem" class="chip"><span class="chip-emoji">🪵💨</span><div class="chip-text-wrap"><span>Defumado &amp; Especiarias</span><span class="chip-desc">Extratos tostados, fumaça fria e picância leve</span></div></label>
+            </div>
+          </div>
+
+          <div class="question hidden" id="p2-q-intensidade">
+            <div class="qnum">Pergunta 4 de 5</div>
+            <h3>Qual nível de corpo e intensidade você espera do drink?</h3>
+            <div class="chip-group three-col">
+              <input type="radio" name="p2_intensidade" id="p2-i-refrescante" value="refrescante" class="chip-input"><label for="p2-i-refrescante" class="chip"><span class="chip-emoji">🧊</span><div class="chip-text-wrap"><span>Leve &amp; Refrescante</span></div></label>
+              <input type="radio" name="p2_intensidade" id="p2-i-equilibrado" value="equilibrado" class="chip-input"><label for="p2-i-equilibrado" class="chip"><span class="chip-emoji">⚖️</span><div class="chip-text-wrap"><span>Equilibrado</span></div></label>
+              <input type="radio" name="p2_intensidade" id="p2-i-marcante" value="marcante" class="chip-input"><label for="p2-i-marcante" class="chip"><span class="chip-emoji">🔥</span><div class="chip-text-wrap"><span>Intenso &amp; Marcante</span></div></label>
+            </div>
+          </div>
+
+          <div class="question hidden" id="p2-q-vibe">
+            <div class="qnum">Pergunta 5 de 5</div>
+            <h3>Qual estilo de apresentação sintoniza melhor com você?</h3>
+            <div class="chip-group">
+              <input type="radio" name="p2_vibe" id="p2-v-classico" value="classico" class="chip-input"><label for="p2-v-classico" class="chip"><span class="chip-emoji">🎩</span><div class="chip-text-wrap"><span>Clássica &amp; Atemporal</span><span class="chip-desc">Linhas limpas, sofisticação minimalista</span></div></label>
+              <input type="radio" name="p2_vibe" id="p2-v-moderno" value="moderno" class="chip-input"><label for="p2-v-moderno" class="chip"><span class="chip-emoji">✨</span><div class="chip-text-wrap"><span>Moderna &amp; Ousada</span><span class="chip-desc">Texturas inovadoras (clarificados, espumas, fumaça)</span></div></label>
+              <input type="radio" name="p2_vibe" id="p2-v-romantico" value="romantico" class="chip-input"><label for="p2-v-romantico" class="chip"><span class="chip-emoji">💞</span><div class="chip-text-wrap"><span>Romântica &amp; Intimista</span><span class="chip-desc">Detalhes delicados, toque floral e conexão</span></div></label>
+              <input type="radio" name="p2_vibe" id="p2-v-descontraido" value="descontraido" class="chip-input"><label for="p2-v-descontraido" class="chip"><span class="chip-emoji">🎉</span><div class="chip-text-wrap"><span>Descontraída &amp; Festiva</span><span class="chip-desc">Cores vibrantes, dinâmica alegre</span></div></label>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn" disabled>Enviar Perfil Combinado</button>
+      </form>
+
+      <div id="thankyou" class="thankyou hidden">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 3c-2 3-2 5 0 7 2-2 2-4 0-7Z"/><path d="M12 10v11"/><path d="M7 21h10"/></svg>
+        <h2>Perfis Individuais Concluídos!</h2>
+        <p>Excelente! Ambos os perfis sensoriais foram mapeados. Nossa equipe de engenharia de bar vai planejar a melhor conexão entre os paladares de vocês.</p>
+        
+        <div id="exportBox" class="export-box">
+          <strong>📤 Compartilhar com a equipe de bar</strong>
+          <p>Se a equipe está em outro dispositivo, clique para copiar o código:</p>
+          <button id="exportBtn" class="btn-export">Copiar dados para compartilhar</button>
+          <textarea id="exportTextarea" placeholder="O código aparecerá aqui…" rows="3" readonly></textarea>
+        </div>
+      </div>
+
+      <div id="saveError" class="save-error hidden">
+        <strong>⚠️ Não foi possível salvar automaticamente.</strong>
+        <p>Isso acontece quando este formulário é aberto fora do preview do Claude.ai (por exemplo, um arquivo baixado e aberto direto no navegador, ou enviado por WhatsApp/e-mail). Nesse caso, o armazenamento compartilhado não existe.</p>
+        <p>Para funcionar, o casal e a equipe de bar precisam abrir <strong>o mesmo link deste artifact dentro do Claude.ai</strong> — não uma cópia baixada do arquivo.</p>
+        <p class="save-error-copy">Enquanto isso, aqui estão as respostas de vocês para anotar manualmente:</p>
+        <pre id="saveErrorData"></pre>
+      </div>
+    </div>
+
+    <div class="staff-link"><a id="goStaff">Acesso da equipe de bar</a></div>
+  </div>
+
+  <!-- ============ VIEW: LOGIN (staff access control) ============ -->
+  <div id="view-login" class="hidden">
+    <div style="text-align:center;margin-top:80px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--wine);margin-bottom:28px;font-weight:700;">
+        Acesso da Equipe
+      </div>
+      
+      <div style="max-width:300px;margin:0 auto;background:var(--card);border:1.5px solid var(--gold-soft);border-radius:12px;padding:32px;box-shadow:0 10px 30px rgba(92,26,46,0.06);">
+        <form id="loginForm" style="display:flex;flex-direction:column;gap:14px;">
+          <div>
+            <label style="display:block;font-size:12px;font-weight:700;color:var(--wine);margin-bottom:6px;">Usuário</label>
+            <input type="text" id="loginUser" placeholder="VVF_BAR" style="width:100%;padding:12px 14px;border:1.5px solid var(--gold-soft);border-radius:10px;font-size:15px;font-family:'Karla',sans-serif;">
+          </div>
+          <div>
+            <label style="display:block;font-size:12px;font-weight:700;color:var(--wine);margin-bottom:6px;">Senha</label>
+            <input type="password" id="loginPass" placeholder="••••••••" style="width:100%;padding:12px 14px;border:1.5px solid var(--gold-soft);border-radius:10px;font-size:15px;font-family:'Karla',sans-serif;">
+          </div>
+          <button type="submit" style="width:100%;padding:12px;border:none;border-radius:10px;background:var(--wine);color:#FBF3E8;font-weight:700;font-size:15px;cursor:pointer;margin-top:8px;">Entrar</button>
+          <div id="loginError" style="color:#C0532A;font-size:12px;text-align:center;display:none;">Usuário ou senha incorretos</div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ VIEW: STAFF ============ -->
+  <div id="view-staff" class="hidden">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+      <div class="staff-back" id="backToLogin" style="cursor:pointer;">← Sair</div>
+      <div style="text-align:right;font-size:12px;color:var(--ink-soft);">Logado como: <strong id="loggedAsUser">—</strong></div>
+    </div>
+    <header style="text-align:left;margin-bottom:20px;">
+      <div class="eyebrow">Painel Técnico — Equipe de Bar</div>
+      <h1 style="font-size:28px;">Engenharia de Fluxo — Coquetel Autoral</h1>
+      <p style="color:var(--ink-soft);font-size:14px;margin-top:6px;">
+        O mapa exibe duas cores de rotas ativas: <span style="color:var(--path);font-weight:bold;">🟢 Pessoa 1</span> e <span style="color:var(--path-p2);font-weight:bold;">🟠 Pessoa 2</span>. 
+        Se baterem na mesma opção, a célula ficará bicolor.
+      </p>
+    </header>
+
+    <div id="pathBanner" class="path-banner hidden">
+      <div class="path-banner-top">
+        <span>🧭 Rota do Casal Ativa: <strong id="pathBannerName"></strong></span>
+        <a id="clearPath">limpar rota</a>
+      </div>
+      <div class="path-banner-people">
+        <div class="path-banner-person path-banner-p1">
+          <strong>🟢 <span id="pathBannerP1Label">Pessoa 1</span></strong>
+          <span id="pathBannerP1Text"></span>
+        </div>
+        <div class="path-banner-person path-banner-p2">
+          <strong>🟠 <span id="pathBannerP2Label">Pessoa 2</span></strong>
+          <span id="pathBannerP2Text"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="staff-section" id="passo12">
+      <h2>Matriz Técnica — Sabor × Base Espirituosa</h2>
+      <div class="sub">Cruze a resposta de Sabor (Linha) com a de Base (Coluna) para obter o direcionamento de infusão e ingredientes de partida.</div>
+
+      <div id="importBox" class="import-box hidden">
+        <strong>📥 Importar dados de outro dispositivo</strong>
+        <p>Se o casal preencheu em outro celular/computador:</p>
+        <textarea id="importTextarea" placeholder="Cole aqui o código exportado pelo casal…" rows="3"></textarea>
+        <button id="importBtn" class="btn-import">Importar</button>
+      </div>
+      
+      <p class="matrix-label">🍸 Perfil Com Álcool</p>
+      <div class="matrix-container">
+        <table class="matrix" id="matrix-com">
+          <tr><th>Sabor ↓ / Base →</th><th id="col-com-gin">🌿 Gin</th><th id="col-com-vodka">💎 Vodka</th><th id="col-com-whisky">🥃 Whisky</th><th id="col-com-tequila">🌵 Tequila</th><th id="col-com-rum">🥃 Rum</th><th id="col-com-cachaca">🪵 Cachaça</th><th id="col-com-espumante">🍾 Espumante</th><th id="col-com-variado">🧪 Variado</th></tr>
+          <tr id="row-com-citrico">
+            <td class="rowhead">🍋 Cítrico</td>
+            <td id="cell-com-citrico-gin"><strong>Gim Botânico Cítrico</strong><span>Gin · Limão siciliano · Manjericão · Tônica premium</span></td>
+            <td id="cell-com-citrico-vodka"><strong>Vodka Crisp</strong><span>Vodka · Cordial de limão cravo · Gengibre fresco · Soda</span></td>
+            <td id="cell-com-citrico-whisky"><strong>Whisky Sour Autoral</strong><span>Bourbon · Suco de limão taiti · Clara/aquafaba · Laranja tostada</span></td>
+            <td id="cell-com-citrico-tequila"><strong>Margarita Sensorial</strong><span>Tequila · Limão · Triplo séc caseiro · Borda de sal cítrico</span></td>
+            <td id="cell-com-citrico-rum"><strong>Daiquiri Balanceado</strong><span>Rum Claro · Xarope de açúcar demerara · Suco de limão taiti</span></td>
+            <td id="cell-com-citrico-cachaca"><strong>Caipira Premium</strong><span>Cachaça branca · Limão galego · Açúcar orgânico · Gelo lapidado</span></td>
+            <td id="cell-com-citrico-espumante"><strong>Spritz Elegante</strong><span>Espumante Brut · Redução cítrica · Folha de hortelã</span></td>
+            <td id="cell-com-citrico-variado"><strong>Cítrico do Mixologista</strong><span>Blend secreto · Base cítrica clarificada · Tintura botânica</span></td>
+          </tr>
+          <tr id="row-com-doce">
+            <td class="rowhead">🍯 Doce</td>
+            <td id="cell-com-doce-gin"><strong>Gin Floral Sweet</strong><span>Gin · Xarope de lavanda ou hibisco · Espuma de mel</span></td>
+            <td id="cell-com-doce-vodka"><strong>Velvet Vodka</strong><span>Vodka · Xarope de baunilha de Madagascar · Frutas vermelhas</span></td>
+            <td id="cell-com-doce-whisky"><strong>Sweet Bourbon Wood</strong><span>Whisky · Mel artesanal · Angostura · Spray de canela</span></td>
+            <td id="cell-com-doce-tequila"><strong>Agave Envolvente</strong><span>Tequila · Mel de agave puro · Toque sutil de baunilha</span></td>
+            <td id="cell-com-doce-rum"><strong>Dark &amp; Stormy Sweet</strong><span>Rum Escuro · Cerveja de gengibre doce · Mel de laranjeira</span></td>
+            <td id="cell-com-doce-cachaca"><strong>Cachaça e Caramelo</strong><span>Cachaça envelhecida · Xarope de açúcar mascavo · Bitter de cacau</span></td>
+            <td id="cell-com-doce-espumante"><strong>Brinde Frutado Doce</strong><span>Espumante Demi-Sec · Licor artesanal de cassis · Morango macerado</span></td>
+            <td id="cell-com-doce-variado"><strong>Doce Alta Mixologia</strong><span>Blend rico · Redução doce de especiarias · Textura aveludada</span></td>
+          </tr>
+          <tr id="row-com-herbal">
+            <td class="rowhead">🌿 Herbal</td>
+            <td id="cell-com-herbal-gin"><strong>Double Botanical</strong><span>Gin · Infusão de alecrim · Extrato de pepino · Zimbro</span></td>
+            <td id="cell-com-herbal-vodka"><strong>Vodka Garden</strong><span>Vodka · Óleos essenciais de hortelã · Capim-santo · Club soda</span></td>
+            <td id="cell-com-herbal-whisky"><strong>Whisky Herbal &amp; Mint</strong><span>Whisky · Sálvia · Xarope leve de hortelã · Casca de limão</span></td>
+            <td id="cell-com-herbal-tequila"><strong>Agave &amp; Ervas</strong><span>Tequila · Coentro fresco · Manjericão · Suco de lima</span></td>
+            <td id="cell-com-herbal-rum"><strong>Mojito de Vanguarda</strong><span>Rum · Hortelã fresca · Tintura botânica de manjericão · Soda</span></td>
+            <td id="cell-com-herbal-cachaca"><strong>Cachaça de Alambique &amp; Campo</strong><span>Cachaça · Infusão de erva-doce · Folhas de limoeiro</span></td>
+            <td id="cell-com-herbal-espumante"><strong>Borbulhas Botânicas</strong><span>Espumante · Cordial de tomilho e alecrim · Twist cítrico</span></td>
+            <td id="cell-com-herbal-variado"><strong>Herbal Surpresa</strong><span>Destilados combinados · Tinturas herbáceas · Guarnição verde</span></td>
+          </tr>
+          <tr id="row-com-tropical">
+            <td class="rowhead">🍍 Tropical</td>
+            <td id="cell-com-tropical-gin"><strong>Tropical Gin</strong><span>Gin · Polpa de maracujá · Espuma de gengibre · Tônica</span></td>
+            <td id="cell-com-tropical-vodka"><strong>Vodka Sunset</strong><span>Vodka · Suco de manga fresca · Toque de lima de pérsia</span></td>
+            <td id="cell-com-tropical-whisky"><strong>Spiced Tropical Whisky</strong><span>Whisky · Abacaxi grelhado · Xarope de cravo e canela</span></td>
+            <td id="cell-com-tropical-tequila"><strong>Tequila Sun &amp; Fruit</strong><span>Tequila · Purê de manga e maracujá · Pimenta sutil na borda</span></td>
+            <td id="cell-com-tropical-rum"><strong>Mai Tai Autoral</strong><span>Rum Oro · Rum Escuro · Orgeat de amêndoas · Abacaxi maçaricado</span></td>
+            <td id="cell-com-tropical-cachaca"><strong>Caipira Tropical</strong><span>Cachaça · Blend de abacaxi e hortelã · Xarope simples</span></td>
+            <td id="cell-com-tropical-espumante"><strong>Mimosa Revisitada</strong><span>Espumante · Redução de frutas tropicais · Gelo de água de coco</span></td>
+            <td id="cell-com-tropical-variado"><strong>Eclético Tropical</strong><span>Mix de destilados claros · Carga massiva de frutas tropicais</span></td>
+          </tr>
+          <tr id="row-com-amargo">
+            <td class="rowhead">🪵 Amargo</td>
+            <td id="cell-com-amargo-gin"><strong>Negroni Redesenhado</strong><span>Gin · Aperitivo amargo · Vermute rosso infusionado</span></td>
+            <td id="cell-com-amargo-vodka"><strong>Vodka &amp; Bitters</strong><span>Vodka · Campari · Extrato de toranja amarga</span></td>
+            <td id="cell-com-amargo-whisky"><strong>Old Fashioned Autoral</strong><span>Whisky · Torrão de açúcar mascavo · Angostura aromatic/orange</span></td>
+            <td id="cell-com-amargo-tequila"><strong>Agave Amargo</strong><span>Tequila · Bitter italiano · Casca de laranja flambada</span></td>
+            <td id="cell-com-amargo-rum"><strong>Rum Boulevardier</strong><span>Rum Envelhecido · Campari · Vermute Rosso artesanal</span></td>
+            <td id="cell-com-amargo-cachaca"><strong>Rabo de Galo Contemporâneo</strong><span>Cachaça envelhecida · Vermute amaro · Toque cítrico</span></td>
+            <td id="cell-com-amargo-espumante"><strong>Spritz Veneziano Club</strong><span>Espumante Brut · Bitter aperitivo · Água com gás · Azeitona</span></td>
+            <td id="cell-com-amargo-variado"><strong>Amargo de Vanguarda</strong><span>Complexo de runs/whiskies · Amaros artesanais · Defumação</span></td>
+          </tr>
+          <tr id="row-com-defumado">
+            <td class="rowhead">🪵💨 Defumado</td>
+            <td id="cell-com-defumado-gin"><strong>Gin Spiced Smoke</strong><span>Gin · Cardamomo infusionado · Zimbro tostado · Defumação de alecrim</span></td>
+            <td id="cell-com-defumado-vodka"><strong>Smoked Velvet Vodka</strong><span>Vodka · Extrato concentrado de chá Lapsang Souchong · Canela</span></td>
+            <td id="cell-com-defumado-whisky"><strong>Penicillin Autoral</strong><span>Whisky Blend · Single Malt Turfado · Gengibre fresco · Spray de mel</span></td>
+            <td id="cell-com-defumado-tequila"><strong>Mezcal Vibe Conceito</strong><span>Tequila · Cordial de Jalapeño · Sal de gusano defumado na borda</span></td>
+            <td id="cell-com-defumado-rum"><strong>Spiced Dark Rum</strong><span>Rum Envelhecido · Canela em pau · Cravo · Fumaça fria de carvalho</span></td>
+            <td id="cell-com-defumado-cachaca"><strong>Carvalho de Alambique</strong><span>Cachaça envelhecida · Bitter artesanal de Pimenta Macaca · Cravo</span></td>
+            <td id="cell-com-defumado-espumante"><strong>Smoked Fizz Royal</strong><span>Espumante Brut · Redução defumada de maçã verde e nozes</span></td>
+            <td id="cell-com-defumado-variado"><strong>Vanguarda Molecular</strong><span>Blend Rum/Whisky · Amaros · Névoa molecular defumada</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <p class="matrix-label">🍹 Perfil Sem Álcool</p>
+      <div class="matrix-container">
+        <table class="matrix" id="matrix-sem">
+          <tr><th>Sabor ↓ / Base →</th><th id="col-sem-suco">🧃 Suco</th><th id="col-sem-cha">🍵 Chá</th><th id="col-sem-coco">🥥 Coco</th><th id="col-sem-espumantezero">🥂 Espumante zero</th></tr>
+          <tr id="row-sem-citrico">
+            <td class="rowhead">🍋 Cítrico</td>
+            <td id="cell-sem-citrico-suco"><strong>Clarificado Cítrico</strong><span>Suco de maçã e limão siciliano clarificados · Gengibre</span></td>
+            <td id="cell-sem-citrico-cha"><strong>Ice Tea Botânico</strong><span>Chá verde gelado · Cordial de limão · Hortelã fresca</span></td>
+            <td id="cell-sem-citrico-coco"><strong>Coco Fresh Cítrico</strong><span>Água de coco · Limão tahiti espremido · Rodela de pepino</span></td>
+            <td id="cell-sem-citrico-espumantezero"><strong>Faux-Spritz Cítrico</strong><span>Espumante zero álcool · Xarope cítrico artesanal · Twist</span></td>
+          </tr>
+          <tr id="row-sem-doce">
+            <td class="rowhead">🍯 Doce</td>
+            <td id="cell-sem-doce-suco"><strong>Néctar Suave</strong><span>Suco natural de pêssego · Mel de laranjeira · Água gaseificada</span></td>
+            <td id="cell-sem-doce-cha"><strong>Infusão Velvet</strong><span>Chá de hibisco concentrado · Baunilha · Amoras pretas</span></td>
+            <td id="cell-sem-doce-coco"><strong>Coco Velvet Sweet</strong><span>Água de coco reduzida · Xarope simples · Canela em pau</span></td>
+            <td id="cell-sem-doce-espumantezero"><strong>Sweet Sparkler Zero</strong><span>Espumante zero · Coulis de morango doce · Açúcar demerara</span></td>
+          </tr>
+          <tr id="row-sem-herbal">
+            <td class="rowhead">🌱 Herbal</td>
+            <td id="cell-sem-herbal-suco"><strong>Suco Garden Zero</strong><span>Prensa fria de maçã e salsão · Manjericão · Gás</span></td>
+            <td id="cell-sem-herbal-cha"><strong>Infusão Botânica Profunda</strong><span>Chá de camomila e capim-limão · Alecrim queimado maçarico</span></td>
+            <td id="cell-sem-herbal-coco"><strong>Coco Herbal Infuso</strong><span>Água de coco macerada com folhas de hortelã e tomilho</span></td>
+            <td id="cell-sem-herbal-espumantezero"><strong>Herbal Fizz Zero</strong><span>Espumante zero · Tintura não-alcoólica de ervas · Guarnição</span></td>
+          </tr>
+          <tr id="row-sem-tropical">
+            <td class="rowhead">🍍 Tropical</td>
+            <td id="cell-sem-tropical-suco"><strong>Vibe Tropical Autoral</strong><span>Suco de maracujá e manga · Xarope de gengibre caseiro</span></td>
+            <td id="cell-sem-tropical-cha"><strong>Blend Tropical Ice</strong><span>Chá branco gelado · Polpa de abacaxi · Ramos de hortelã</span></td>
+            <td id="cell-sem-tropical-coco"><strong>Coco-Abacaxi Tropical</strong><span>Água de coco · Extrato de abacaxi maduro · Toque de lima</span></td>
+            <td id="cell-sem-tropical-espumantezero"><strong>Borbulha Tropical Zero</strong><span>Espumante zero · Purê de fruta madura · Estrela de anis</span></td>
+          </tr>
+          <tr id="row-sem-defumado">
+            <td class="rowhead">🪵💨 Defumado</td>
+            <td id="cell-sem-defumado-suco"><strong>Pomo Defumado Zero</strong><span>Suco de maçã verde defumada · Xarope artesanal de especiarias</span></td>
+            <td id="cell-sem-defumado-cha"><strong>Lapsang Concept</strong><span>Infusão concentrada de Lapsang Souchong defumado · Cordial de mel</span></td>
+            <td id="cell-sem-defumado-coco"><strong>Tropical Wood Smoke</strong><span>Água de coco de partida · Redução de abacaxi grelhado no maçarico</span></td>
+            <td id="cell-sem-defumado-espumantezero"><strong>Spiced Smoke Fizz</strong><span>Espumante zero · Xarope molecular de canela · Névoa de fumaça fria</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="arrow-down">
+      <svg width="20" height="24" viewBox="0 0 20 24"><path d="M10 0v20M3 15l7 7 7-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+    </div>
+
+    <!-- PASSO 3 — CORPO -->
+    <div class="staff-section">
+      <h2>Estrutura de Corpo e Ajuste de Diluição</h2>
+      <div class="sub">Definido pelas respostas explícitas de intensidade. Orienta a escolha do copo, gelo e técnica.</div>
+      <div class="mod-row">
+        <div class="mod-card" id="mod-int-refrescante"><strong>🧊 Leve, Longo &amp; Refrescante</strong><p>Uso de copos longos/altos. Gelo moído ou cubos padrão. Alta diluição com sodas, tônica ou água gasosa. Técnica: Montado ou Mexido.</p></div>
+        <div class="mod-card" id="mod-int-equilibrado"><strong>⚖️ Equilibrado &amp; Meio-Termo</strong><p>Copos de tamanho médio ou taças amplas. Gelo em cubos grandes para controle estável de temperatura. Diluição moderada. Técnica: Batido ou Mexido.</p></div>
+        <div class="mod-card" id="mod-int-marcante"><strong>🔥 Intenso, Curto &amp; Marcante</strong><p>Copos baixos ou estilo Coupe/Double Old Fashioned. Gelo translúcido único de alta densidade ou coquetel servido "Up" (sem gelo na taça). Diluição mínima. Técnica: Mexido (Stirred).</p></div>
+      </div>
+    </div>
+
+    <div class="arrow-down">
+      <svg width="20" height="24" viewBox="0 0 20 24"><path d="M10 0v20M3 15l7 7 7-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+    </div>
+
+    <!-- PASSO 4 — VIBE -->
+    <div class="staff-section">
+      <h2>Estética de Apresentação e Atmosfera</h2>
+      <div class="sub">Orienta a cristalaria e finalização estética na mesa.</div>
+      <div class="mod-row">
+        <div class="mod-card" id="mod-vibe-classico"><strong>🎩 Clássica &amp; Atemporal</strong><p>Cristalaria tradicional de linhas retas. Guarnição minimalista (twist cirúrgico de casca cítrica). Apresentação limpa e sóbria.</p></div>
+        <div class="mod-card" id="mod-vibe-moderno"><strong>✨ Moderna &amp; Ousada</strong><p>Copo de vanguarda ou autoral. Efeitos texturizados marcantes (espumas moleculares, clarificação em leite, defumações com madeiras nobres, gelo impresso).</p></div>
+        <div class="mod-card" id="mod-vibe-romantico"><strong>💞 Romântica &amp; Intimista</strong><p>Taças delicadas de haste fina. Finalização aromática sutil, pétala ou flor comestível orgânica. Elemento visual de conexão entre os dois copos.</p></div>
+        <div class="mod-card" id="mod-vibe-descontraido"><strong>🎉 Descontraída &amp; Festiva</strong><p>Cores intensas e contrastantes. Guarnições descontraídas, volumosas e aromáticas (ramos fartos de ervas, espetos de frutas). Serviço dinâmico.</p></div>
+      </div>
+    </div>
+
+    <div class="arrow-down">
+      <svg width="20" height="24" viewBox="0 0 20 24"><path d="M10 0v20M3 15l7 7 7-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+    </div>
+
+    <div class="staff-section">
+      <h2>Perfis Recebidos (Banco de Respostas)</h2>
+      <div class="sub">A última resposta processada ganha destaque instantâneo na árvore lógica acima. Selecione qualquer registro para mapear sua rota.</div>
+      <div class="responses-toolbar">
+        <span style="font-size:12px;color:var(--ink-soft);" id="respCount">—</span>
+        <button class="btn-refresh" id="refreshBtn">Atualizar lista de perfis</button>
+      </div>
+      <div id="respList"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ---- STORAGE ADAPTER (window.storage OR localStorage fallback) ----
+const storageMode = {mode: null};
+
+async function initStorage(){
+  if(typeof window.storage !== 'undefined'){
+    storageMode.mode = 'claude';
+    console.log('✓ Using Claude.ai shared storage');
+  } else {
+    storageMode.mode = 'localStorage';
+    console.log('ℹ Using localStorage (local device only)');
+  }
+}
+
+async function saveToStorage(key, value){
+  if(storageMode.mode === 'claude'){
+    await window.storage.set(key, value, true);
+  } else {
+    localStorage.setItem(key, value);
+  }
+}
+
+async function loadFromStorage(key){
+  if(storageMode.mode === 'claude'){
+    const res = await window.storage.get(key, true);
+    return res ? res.value : null;
+  } else {
+    return localStorage.getItem(key);
+  }
+}
+
+async function listFromStorage(prefix){
+  if(storageMode.mode === 'claude'){
+    const res = await window.storage.list(prefix, true);
+    return res ? res.keys : [];
+  } else {
+    const keys = [];
+    for(let i=0; i<localStorage.length; i++){
+      const key = localStorage.key(i);
+      if(key.startsWith(prefix)) keys.push(key);
+    }
+    return keys;
+  }
+}
+
+// Initialize on page load
+initStorage();
+
+// ---- AUTHENTICATION ----
+const authState = {isLoggedIn: false, username: null};
+const VALID_CREDENTIALS = {username: 'VVF_BAR', password: 'VVF@bar2026'};
+
+function showLoginView(){
+  document.getElementById('view-form').classList.add('hidden');
+  document.getElementById('view-staff').classList.add('hidden');
+  document.getElementById('view-login').classList.remove('hidden');
+  document.getElementById('loginUser').focus();
+}
+
+function showFormView(){
+  document.getElementById('view-form').classList.remove('hidden');
+  document.getElementById('view-staff').classList.add('hidden');
+  document.getElementById('view-login').classList.add('hidden');
+}
+
+function showStaffView(){
+  document.getElementById('view-form').classList.add('hidden');
+  document.getElementById('view-login').classList.add('hidden');
+  document.getElementById('view-staff').classList.remove('hidden');
+  document.getElementById('loggedAsUser').textContent = authState.username;
+  if(storageMode.mode === 'localStorage'){
+    document.getElementById('importBox').classList.remove('hidden');
+  }
+  loadResponses();
+}
+
+function logout(){
+  authState.isLoggedIn = false;
+  authState.username = null;
+  showLoginView();
+}
+
+// Wire up login form
+document.getElementById('loginForm').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const user = document.getElementById('loginUser').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  
+  if(user === VALID_CREDENTIALS.username && pass === VALID_CREDENTIALS.password){
+    authState.isLoggedIn = true;
+    authState.username = user;
+    document.getElementById('loginError').style.display = 'none';
+    document.getElementById('loginUser').value = '';
+    document.getElementById('loginPass').value = '';
+    showStaffView();
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+    document.getElementById('loginPass').value = '';
+  }
+});
+
+// Wire up logout/back button
+document.getElementById('backToLogin').addEventListener('click', logout);
+
+const labels = {
+  alcool:{com:'🍸 Com Álcool', sem:'🍹 Sem Álcool'},
+  sabor:{doce:'🍯 Doce', citrico:'🍋 Cítrico', amargo:'🪵 Amargo', tropical:'🍍 Tropical', herbal:'🌿 Herbal', defumado:'🪵💨 Defumado'},
+  base:{
+    gin:'🌿 Gin', vodka:'💎 Vodka', whisky:'🥃 Whisky', tequila:'🌵 Tequila', rum:'🥃 Rum', cachaca:'🪵 Cachaça', espumante:'🍾 Espumante', variado:'🧪 Variado',
+    suco:'🧃 Suco', cha:'🍵 Chá', coco:'🥥 Água de coco', espumantezero:'🥂 Espumante zero'
+  },
+  intensidade:{refrescante:'🧊 Refrescante', equilibrado:'⚖️ Equilibrado', marcante:'🔥 Marcante'},
+  vibe:{classico:'🎩 Clássica', moderno:'✨ Moderna', romantico:'💞 Romântica', descontraido:'🎉 Descontraída'}
+};
+
+const form = document.getElementById('tastingForm');
+const submitBtn = document.getElementById('submitBtn');
+const liquidFill = document.getElementById('liquidFill');
+const progressLabel = document.getElementById('progressLabel');
+
+const nomeP1Input = document.getElementById('nomeP1');
+const nomeP2Input = document.getElementById('nomeP2');
+const labelP1 = document.getElementById('label-nomeP1');
+const labelP2 = document.getElementById('label-nomeP2');
+
+nomeP1Input.addEventListener('input', function() {
+  labelP1.textContent = this.value.trim() || 'Pessoa 1';
+});
+nomeP2Input.addEventListener('input', function() {
+  const nome = this.value.trim();
+  labelP2.textContent = nome || 'Pessoa 2';
+  if(nome) document.getElementById('wrapper-p2').classList.remove('hidden');
+});
+
+function bindCondicional(prefix) {
+  form.querySelectorAll(`input[name="${prefix}_alcool"]`).forEach(radio => {
+    radio.addEventListener('change', function() {
+      const val = this.value;
+      document.getElementById(`${prefix}-q-base`).classList.remove('hidden');
+      document.getElementById(`${prefix}-q-sabor`).classList.remove('hidden');
+      document.getElementById(`${prefix}-q-intensidade`).classList.remove('hidden');
+      document.getElementById(`${prefix}-q-vibe`).classList.remove('hidden');
+      
+      document.getElementById(`${prefix}-base-com-wrap`).classList.toggle('hidden', val !== 'com');
+      document.getElementById(`${prefix}-base-sem-wrap`).classList.toggle('hidden', val !== 'sem');
+      document.getElementById(`${prefix}-sabor-com-wrap`).classList.toggle('hidden', val !== 'com');
+      document.getElementById(`${prefix}-sabor-sem-wrap`).classList.toggle('hidden', val !== 'sem');
+    });
+  });
+}
+bindCondicional('p1');
+bindCondicional('p2');
+
+document.querySelectorAll('.chip-input').forEach(input => {
+  input.addEventListener('click', function() {
+    if (this.dataset.wasChecked === "true") {
+      this.checked = false;
+      this.dataset.wasChecked = "false";
+      
+      if (this.name.endsWith('_alcool')) {
+        const prefix = this.name.split('_')[0];
+        document.getElementById(`${prefix}-q-base`).classList.add('hidden');
+        document.getElementById(`${prefix}-q-sabor`).classList.add('hidden');
+        document.getElementById(`${prefix}-q-intensidade`).classList.add('hidden');
+        document.getElementById(`${prefix}-q-vibe`).classList.add('hidden');
+        form.querySelectorAll(`input[name^="${prefix}_base"], input[name^="${prefix}_sabor"]`).forEach(el => {
+          el.checked = false;
+          el.dataset.wasChecked = "false";
+        });
+      }
+    } else {
+      document.querySelectorAll(`input[name="${this.name}"]`).forEach(el => el.dataset.wasChecked = "false");
+      this.dataset.wasChecked = "true";
+    }
+    updateProgress();
+  });
+});
+
+function getAnswers() {
+  const getVal = (name) => {
+    const el = form.querySelector(`input[name="${name}"]:checked`);
+    return el ? el.value : null;
+  };
+  
+  const p1_alc = getVal('p1_alcool');
+  const p2_alc = getVal('p2_alcool');
+  
+  return {
+    p1: {
+      alcool: p1_alc,
+      base: p1_alc === 'com' ? getVal('p1_base_com') : getVal('p1_base_sem'),
+      sabor: p1_alc === 'com' ? getVal('p1_sabor_com') : getVal('p1_sabor_sem'),
+      intensidade: getVal('p1_intensidade'),
+      vibe: getVal('p1_vibe')
+    },
+    p2: {
+      alcool: p2_alc,
+      base: p2_alc === 'com' ? getVal('p2_base_com') : getVal('p2_base_sem'),
+      sabor: p2_alc === 'com' ? getVal('p2_sabor_com') : getVal('p2_sabor_sem'),
+      intensidade: getVal('p2_intensidade'),
+      vibe: getVal('p2_vibe')
+    }
+  };
+}
+
+function updateProgress(){
+  const ans = getAnswers();
+  const arrP1 = [ans.p1.alcool, ans.p1.base, ans.p1.sabor, ans.p1.intensidade, ans.p1.vibe];
+  const arrP2 = [ans.p2.alcool, ans.p2.base, ans.p2.sabor, ans.p2.intensidade, ans.p2.vibe];
+  
+  const answered = arrP1.filter(Boolean).length + arrP2.filter(Boolean).length;
+  const pct = answered / 10;
+  
+  const maxH = 45;
+  const h = maxH * pct;
+  liquidFill.setAttribute('y', 55 - h);
+  liquidFill.setAttribute('height', h);
+  
+  progressLabel.textContent = answered + ' de 10 respondidas';
+  
+  const p1Ok = arrP1.filter(Boolean).length === 5;
+  const p2Ok = arrP2.filter(Boolean).length === 5;
+  submitBtn.disabled = !(p1Ok && p2Ok);
+}
+
+form.addEventListener('submit', async function(e){
+  e.preventDefault();
+  const ans = getAnswers();
+  const n1 = nomeP1Input.value.trim() || 'Pessoa 1';
+  const n2 = nomeP2Input.value.trim() || 'Pessoa 2';
+  
+  const payload = {
+    casal: `${n1} & ${n2}`,
+    p1Name: n1,
+    p2Name: n2,
+    p1: ans.p1,
+    p2: ans.p2,
+    criadoEm: new Date().toISOString()
+  };
+  
+  let saved = false;
+  try {
+    const key = 'respostas:' + Date.now() + '-' + Math.random().toString(36).slice(2,7);
+    await saveToStorage(key, JSON.stringify(payload));
+    saved = true;
+  } catch(err) {
+    console.error('Não foi possível salvar a resposta:', err);
+  }
+  
+  form.classList.add('hidden');
+  if(saved){
+    document.getElementById('thankyou').classList.remove('hidden');
+  } else {
+    document.getElementById('saveErrorData').textContent =
+      `${n1}: ${descreverCaminho(ans.p1)}\n${n2}: ${descreverCaminho(ans.p2)}`;
+    document.getElementById('saveError').classList.remove('hidden');
+  }
+});
+
+document.getElementById('goStaff').addEventListener('click', ()=>{
+  if(authState.isLoggedIn){
+    showStaffView();
+  } else {
+    showLoginView();
+  }
+});
+document.getElementById('backForm').addEventListener('click', ()=>{
+  document.getElementById('view-staff').classList.add('hidden');
+  document.getElementById('view-form').classList.remove('hidden');
+});
+
+let currentEntries = [];
+function clearPathHighlights(){
+  document.querySelectorAll('.p1-active, .p2-active').forEach(el => {
+    el.classList.remove('p1-active', 'p2-active');
+  });
+  document.getElementById('pathBanner').classList.add('hidden');
+  document.querySelectorAll('.resp-card-active').forEach(el=>el.classList.remove('resp-card-active'));
+}
+
+function descreverCaminho(p){
+  if(!p.alcool || !p.base || !p.sabor || !p.intensidade || !p.vibe) return 'Perfil incompleto.';
+  return [labels.alcool[p.alcool], labels.base[p.base], labels.sabor[p.sabor], labels.intensidade[p.intensidade], labels.vibe[p.vibe]]
+    .filter(Boolean).join(' · ');
+}
+
+function highlightPairPath(entry, shouldScroll){
+  clearPathHighlights();
+
+  let p1ColEl = null, p2ColEl = null;
+
+  const p1 = entry.p1;
+  if(p1.alcool && p1.base && p1.sabor) {
+    const p1Row = `row-${p1.alcool}-${p1.sabor}`;
+    const p1Col = `col-${p1.alcool}-${p1.base}`;
+    const p1Cell = `cell-${p1.alcool}-${p1.sabor}-${p1.base}`;
+    const p1Int = `mod-int-${p1.intensidade}`;
+    const p1Vibe = `mod-vibe-${p1.vibe}`;
+    [p1Row, p1Col, p1Cell, p1Int, p1Vibe].forEach(id => {
+      const el = document.getElementById(id); if(el) el.classList.add('p1-active');
+    });
+    p1ColEl = document.getElementById(p1Col);
+  }
+
+  const p2 = entry.p2;
+  if(p2.alcool && p2.base && p2.sabor) {
+    const p2Row = `row-${p2.alcool}-${p2.sabor}`;
+    const p2Col = `col-${p2.alcool}-${p2.base}`;
+    const p2Cell = `cell-${p2.alcool}-${p2.sabor}-${p2.base}`;
+    const p2Int = `mod-int-${p2.intensidade}`;
+    const p2Vibe = `mod-vibe-${p2.vibe}`;
+    [p2Row, p2Col, p2Cell, p2Int, p2Vibe].forEach(id => {
+      const el = document.getElementById(id); if(el) el.classList.add('p2-active');
+    });
+    p2ColEl = document.getElementById(p2Col);
+  }
+
+  const cardEl = document.getElementById('card-' + entry.key);
+  if(cardEl) cardEl.classList.add('resp-card-active');
+
+  document.getElementById('pathBannerName').textContent = entry.casal;
+  document.getElementById('pathBannerP1Label').textContent = entry.p1Name || 'Pessoa 1';
+  document.getElementById('pathBannerP2Label').textContent = entry.p2Name || 'Pessoa 2';
+  document.getElementById('pathBannerP1Text').textContent = descreverCaminho(p1);
+  document.getElementById('pathBannerP2Text').textContent = descreverCaminho(p2);
+  document.getElementById('pathBanner').classList.remove('hidden');
+
+  if(shouldScroll){
+    document.getElementById('pathBanner').scrollIntoView({behavior:'smooth', block:'start'});
+    setTimeout(()=>{
+      if(p1ColEl) p1ColEl.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+      if(p2ColEl) p2ColEl.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+    }, 400);
+  }
+}
+
+document.getElementById('clearPath').addEventListener('click', clearPathHighlights);
+document.getElementById('view-staff').addEventListener('click', (e)=>{
+  const btn = e.target.closest('.btn-path');
+  if(!btn) return;
+  const entry = currentEntries.find(en=>en.key === btn.dataset.key);
+  if(entry) highlightPairPath(entry, true);
+});
+
+function gerarDirecaoDeServico(p1, p2) {
+  if (p1.alcool !== p2.alcool) {
+    return `<strong>Serviço Dividido Operacional:</strong> Um parceiro optou por coquetelaria alcoólica e o outro por mocktail conceito. Montar as duas estruturas de forma independente respeitando a diluição e cristalaria de cada um.`;
+  }
+  if (p1.base === p2.base && p1.sabor === p2.sabor) {
+    return `<strong>Sintonia Sensorial Máxima:</strong> Ambos atingiram a mesma base espirituosa e arquitetura de sabor no mapa. Desenvolver uma única receita principal e focar na complexidade aromática.`;
+  }
+  return `<strong>Estratégia Blend / Duas Linhas:</strong> Mesma categoria de álcool, mas caminhos sensoriais distintos. Servir em copos separados com guarnições complementares ou criar um coquetel híbrido unindo os perfis.`;
+}
+
+async function loadResponses(){
+  const listEl = document.getElementById('respList');
+  const countEl = document.getElementById('respCount');
+  listEl.innerHTML = '<div class="resp-empty">Carregando respostas…</div>';
+  let entries = [];
+
+  try {
+    const keys = await listFromStorage('respostas:');
+    const results = await Promise.all(keys.map(async k=>{
+      try{
+        const value = await loadFromStorage(k);
+        if(!value) return null;
+        const parsed = JSON.parse(value);
+        parsed.key = k;
+        return parsed;
+      }catch(e){ return null; }
+    }));
+    entries = results.filter(Boolean);
+  } catch(err) {
+    console.error('Não foi possível carregar as respostas:', err);
+  }
+
+  entries.sort((a,b)=> new Date(b.criadoEm) - new Date(a.criadoEm));
+
+  const modoTexto = storageMode.mode === 'localStorage' ? ' (local - ' + navigator.userAgent.split(' ').slice(-2).join(' ') + ')' : '';
+  countEl.textContent = entries.length + (entries.length===1 ? ' casal registrado' : ' casais registrados') + modoTexto;
+
+  if(entries.length === 0){
+    if(storageMode.mode === 'localStorage'){
+      listEl.innerHTML = `<div class="resp-empty">
+        Nenhum perfil salvo neste dispositivo ainda.<br><br>
+        <strong>Se o casal preencheu em outro dispositivo:</strong><br>
+        Peça ao casal para clicar em "Exportar dados" no formulário dele, copiar o código, e você cola aqui na aba de equipe (botão "Importar dados").
+      </div>`;
+    } else {
+      listEl.innerHTML = '<div class="resp-empty">Nenhum perfil de casal processado até o momento.</div>';
+    }
+    currentEntries = [];
+    clearPathHighlights();
+    return;
+  }
+
+  listEl.innerHTML = entries.map(r=>{
+    const dt = new Date(r.criadoEm);
+    const dtStr = isNaN(dt) ? '' : dt.toLocaleString('pt-BR');
+    const directiva = gerarDirecaoDeServico(r.p1, r.p2);
+    
+    return `
+      <div class="resp-card" id="card-${r.key}">
+        <div class="resp-top">
+          <span class="resp-name">${r.casal}</span>
+          <span class="resp-time">${dtStr}</span>
+        </div>
+        <div class="resp-split">
+          <div class="resp-person-box">
+            <div class="resp-person-title">🟢 ${r.p1Name}</div>
+            <div class="resp-tags">
+              <span>${labels.alcool[r.p1.alcool]||''}</span>
+              <span>${labels.base[r.p1.base]||''}</span>
+              <span>${labels.sabor[r.p1.sabor]||''}</span>
+              <span>${labels.intensidade[r.p1.intensidade]||''}</span>
+              <span>Estilo: ${labels.vibe[r.p1.vibe]||''}</span>
+            </div>
+          </div>
+          <div class="resp-person-box">
+            <div class="resp-person-title">🟠 ${r.p2Name}</div>
+            <div class="resp-tags">
+              <span>${labels.alcool[r.p2.alcool]||''}</span>
+              <span>${labels.base[r.p2.base]||''}</span>
+              <span>${labels.sabor[r.p2.sabor]||''}</span>
+              <span>${labels.intensidade[r.p2.intensidade]||''}</span>
+              <span>Estilo: ${labels.vibe[r.p2.vibe]||''}</span>
+            </div>
+          </div>
+        </div>
+        <div class="resp-result">
+          ${directiva}
+        </div>
+        <button class="btn-path" data-key="${r.key}">Ver rotas integradas na árvore ↑</button>
+      </div>`;
+  }).join('');
+
+  currentEntries = entries;
+  highlightPairPath(entries[0], true);
+}
+
+document.getElementById('refreshBtn').addEventListener('click', loadResponses);
+
+// ---- EXPORT/IMPORT for cross-device sharing ----
+if(document.getElementById('exportBtn')){
+  document.getElementById('exportBtn').addEventListener('click', async ()=>{
+    const ans = getAnswers();
+    const n1 = document.getElementById('nomeP1').value.trim() || 'Pessoa 1';
+    const n2 = document.getElementById('nomeP2').value.trim() || 'Pessoa 2';
+    const payload = {
+      casal: `${n1} & ${n2}`,
+      p1Name: n1,
+      p2Name: n2,
+      p1: ans.p1,
+      p2: ans.p2,
+      criadoEm: new Date().toISOString()
+    };
+    const exported = btoa(JSON.stringify(payload));
+    document.getElementById('exportTextarea').value = exported;
+    document.getElementById('exportTextarea').select();
+    document.execCommand('copy');
+    document.getElementById('exportBtn').textContent = '✓ Copiado!';
+    setTimeout(()=>{ document.getElementById('exportBtn').textContent = 'Copiar dados para compartilhar'; }, 2000);
+  });
+}
+
+if(document.getElementById('importBtn')){
+  document.getElementById('importBtn').addEventListener('click', async ()=>{
+    const code = document.getElementById('importTextarea').value.trim();
+    if(!code){
+      alert('Cole o código primeiro');
+      return;
+    }
+    try {
+      const payload = JSON.parse(atob(code));
+      const key = 'respostas:' + Date.now() + '-' + Math.random().toString(36).slice(2,7);
+      await saveToStorage(key, JSON.stringify(payload));
+      document.getElementById('importTextarea').value = '';
+      document.getElementById('importBox').classList.add('hidden');
+      await loadResponses();
+      document.getElementById('importBtn').textContent = '✓ Importado!';
+      setTimeout(()=>{ document.getElementById('importBtn').textContent = 'Importar'; }, 2000);
+    } catch(e){
+      alert('Código inválido. Peça ao casal para exportar novamente.');
+      console.error(e);
+    }
+  });
+}
+
+
+
+</script>
+</body>
+</html>
